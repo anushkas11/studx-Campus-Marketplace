@@ -1,0 +1,27 @@
+spring:
+  datasource:
+    url: jdbc:h2:mem:studx_test;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE;NON_KEYWORDS=VALUE;INIT=SET REFERENTIAL_INTEGRITY FALSE
+    driver-class-name: org.h2.Driver
+    username: sa
+    password:
+  h2:
+    console:
+      enabled: false
+  jpa:
+    hibernate:
+      ddl-auto: create-drop
+    show-sql: false
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.H2Dialect
+  flyway:
+    enabled: false
+
+app:
+  jwt:
+    secret:secret: ${JWT_SECRET:studxTestOnlySecretKeyForLocalTests98765432101234567890}
+    expiration-ms: 3600000
+  upload:
+    dir: ./target/test-uploads
+  email:
+    approved-domains: .edu,.ac.in,.edu.in
